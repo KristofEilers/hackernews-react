@@ -7,7 +7,7 @@ export default function Articles () {
     //1. Mit Fetch
     useEffect(() => {
       //hier geht der Fetch los
-      fetch("https://hn.algolia.com/api/v1/search?query=javascript")
+      fetch("http://hn.algolia.com/api/v1/search?query=javascript&tags=story")
         .then((res) => {
           if (!res.ok) throw new Error(`Failed because ${res.status}`);
           console.log(res);
@@ -17,7 +17,7 @@ export default function Articles () {
           //WICHTIG: CONSOLE CHECKEN!
           console.log("inside 2nd then:", data);
           // data.hits: Es wird ein Weg gesucht, auf diese data.hits zuzugreifen, damit es im Objektbaum
-          setArticles(data);
+          setArticles(data.hits);
         })
         .catch((err) => console.log(err));
     }, []);
@@ -27,8 +27,8 @@ export default function Articles () {
         <div>
             <h1>JS Articles</h1>
             {articles.length 
-            ? articles.hits.map((article)=> {
-                return <li>article.title</li>;
+            ? articles.map((article)=> {
+                return <li>{article.title}</li>;
             })
             : "...loading" }
         </div>
