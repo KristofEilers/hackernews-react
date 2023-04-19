@@ -5,7 +5,7 @@ export default function Articles() {
 
   useEffect(() => {
     //hier geht der Fetch los
-    fetch("http://hn.algolia.com/api/v1/search_by_date?query=javascript")
+    fetch("http://hn.algolia.com/api/v1/search/?query={query}&hitsPerPage=50")
       .then((res) => {
         if (!res.ok) throw new Error(`Failed because ${res.status}`);
         // console.log(res);
@@ -26,10 +26,14 @@ export default function Articles() {
         ? articles.map((article) => {
             return (
               <li>
-                <h4>{article.story_title}</h4>
+                <h4>{article.story_title || article.title}</h4>
                 <div>
-                  <p>{format(article.created_at_i, "dd/mm/yyyy")}</p>
-                  <a href={article.url || article.story_url} target="_blank">
+                  <p>{format(article.created_at_i, "dd.mm.yyyy")}</p>
+                  <a
+                    href={article.url || article.story_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Read Full Article
                   </a>
                 </div>

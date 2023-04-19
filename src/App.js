@@ -1,11 +1,15 @@
 import "./App.css";
 import Articles from "./components/Articles";
+import Search from "./components/Search";
 
 function App() {
   return (
     <>
       <div>
-        <Articles />
+        <Search />
+        <ol>
+          <Articles />
+        </ol>
       </div>
     </>
   );
