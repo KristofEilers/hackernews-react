@@ -26,7 +26,7 @@ function App() {
   }, [query]);
   return (
     <>
-      <div>
+      <div className="App">
         <h1>Hackernews</h1>
         <Search setQuery={setQuery} />
         <ol>
@@ -36,7 +36,7 @@ function App() {
                   <>
                     <li>
                       <h4>{article.story_title || article.title}</h4>
-                      <div>
+                      <div className="article-info">
                         <p>
                           Blog article date:{" "}
                           {format(new Date(article.created_at), "dd.MM.yy")}
