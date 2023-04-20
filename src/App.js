@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Articles from './components/Articles';
 import Search from './components/Search';
@@ -8,7 +7,7 @@ function App() {
     <div>
       <Search />
       <ol>
-      <Articles />
+      <Articles/>
       </ol>
     </div>
   );
