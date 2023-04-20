@@ -1,31 +1,30 @@
 import { useState } from "react";
-export default function Search() {
-  const [query, setQuery] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-  console.log(query + "Ergebnis");
 
-  const addQuery = () => {
-    if (inputValue === "") {
+export default function Search(props) {
+  const [inputValue, setInputValue] = useState("javascript");
+
+  // console.log(query + " Ergebnis");
+
+  const addQuery = (event) => {
+    event.preventDefault();
+    if (inputValue.trim() === "") {
       return;
     }
 
-    const newQuery = () => {
-      setQuery(inputValue);
-    };
-    console.log(newQuery);
+    props.setQuery(inputValue.trim());
     setInputValue("");
   };
 
   return (
     <div>
-      <form>
+      <form onSubmit={addQuery}>
         <input
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           type="text"
           placeholder="Search..."
         />
-        <button onClick={addQuery}>Search</button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );
