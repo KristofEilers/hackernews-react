@@ -19,13 +19,13 @@ export default function Search(props) {
   return (
     <div>
       <form onSubmit={addQuery}>
-        <input
+        <input className ="searchBar"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           type="text"
           placeholder="Search..."
         />
-        <button type="submit">Search</button>
+        <button>Search</button>
       </form>
     </div>
   );
