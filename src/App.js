@@ -27,8 +27,10 @@ function App() {
   return (
     <>
       <div className="App">
-        <h1>Hackernews</h1>
+        <header className="header">
+        <h1>Hacker News</h1>
         <Search setQuery={setQuery} />
+        </header>
         <ol>
           {articles.length
             ? articles.map((article) => {
