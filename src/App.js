@@ -34,13 +34,17 @@ function App() {
             ? articles.map((article) => {
                 return (
                   <>
-                    <li>
+                    <li className="list-article">
                       <h4>{article.story_title || article.title}</h4>
                       <div className="article-info">
-                        <p>
-                          Blog article date:{" "}
+                        <p className="article-info-author">
+                          Author: {article.author}
+                        </p>
+                        <p className="article-info-date">
+                          Article Date:{" "}
                           {format(new Date(article.created_at), "dd.MM.yy")}
                         </p>
+
                         <a
                           href={article.url || article.story_url}
                           target="_blank"
