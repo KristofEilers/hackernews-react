@@ -57,11 +57,13 @@ function App() {
                   </>
                 );
               })
-            : "...loading"}
+            : //"...test"} 
+            <span class="loader"></span>}
         </ol>
       </div>
     </>
   );
 }
+
 
 export default App;
